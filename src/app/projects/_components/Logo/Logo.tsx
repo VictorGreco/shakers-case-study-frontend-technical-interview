@@ -1,9 +1,4 @@
 import Typography from '@mui/material/Typography';
-import styled from "styled-components";
-
-const styledTypography = styled(Typography)`
-
-`
 
 export default function Logo() {
     return (
