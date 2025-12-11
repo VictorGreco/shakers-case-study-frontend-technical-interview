@@ -15,10 +15,26 @@ import MenuItem from '@mui/material/MenuItem';
 import Badge from '@mui/material/Badge';
 import ChatIcon from '../ChatIcon/ChatIcon';
 import BellIcon from '../BellIcon/BellIcon';
-import LogoIcon from '../LogoIcon/LogoIcon';
+import ShakersIcon from '../ShakersIcon/ShakersIcon';
+import styled from "styled-components";
+import Logo from '../Logo/Logo';
 
+const StyledAppBar = styled(AppBar)`
+  height: 64px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 40px;
+  gap: 12px;
+  background: #FFFFFF;
+  border-bottom: 1px solid #E4E7E7;
 
-const pages = ['Buscar Proyectos',];
+  @media only screen and (min-width: 728px) {
+    height: 68px;
+  }
+`;
+
+const pages = ['Buscar Proyectos'];
 
 export default function Header() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
@@ -32,26 +48,10 @@ export default function Header() {
   };
 
   return (
-    <AppBar position="static">
+    <StyledAppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
-            sx={{
-              mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            Buscar Proyectos
-          </Typography>
+          <Logo />
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
@@ -99,7 +99,7 @@ export default function Header() {
           </Box>
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
               <Badge badgeContent={0} color="error">
-                <LogoIcon />
+                <ShakersIcon />
               </Badge>
           </Box>
           <Box sx={{ flexGrow: 0 }}>
@@ -123,6 +123,6 @@ export default function Header() {
           </Box>
         </Toolbar>
       </Container>
-    </AppBar>
+    </StyledAppBar>
   );
 }
