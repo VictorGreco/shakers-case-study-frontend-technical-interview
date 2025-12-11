@@ -1,4 +1,4 @@
-import Header from "./_components/Header";
+import Header from "./_components/Header/Header";
 
 export default function ProjectLayout({
   children,
