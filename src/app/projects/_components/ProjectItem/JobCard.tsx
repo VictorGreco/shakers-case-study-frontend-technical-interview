@@ -4,7 +4,6 @@ import {
   TechTag,
   CardContainer,
   LogoSection,
-  LogoPlaceholder,
   BrandNameText,
   DetailsSection,
   TitleText,
@@ -15,7 +14,8 @@ import {
   ArrowIcon,
 } from './JobCard.styles';
 import { IProject } from '../_types/IProject';
-import ReferralBannerComponent from './ReferralBanner';
+import ReferralBannerComponent from '../ReferralBanner/ReferralBanner';
+import CompanyLogo from '../CompanyLogo/CompanyLogo';
 
 
 // Mock icon component for demonstration. In a real app, this would be a proper icon library.
@@ -63,7 +63,7 @@ const JobCard = ({ project }: IProject) => {
         {/* Left Section: Logo and Brand Name */}
         <LogoSection>
           {/* In a real app, this would be an <img> tag or a Next.js <Image> component */}
-          <LogoPlaceholder />
+          <CompanyLogo src={ project.organization.logo }/>
           <BrandNameText variant="caption">Japy brand</BrandNameText>
         </LogoSection>
 
