@@ -6,6 +6,7 @@ import { IProject } from '../_types/IProject';
 import { ICategory } from '../_types/ICategory';
 import { ISubcategory } from '../_types/ISubcategory';
 import { ISkill } from '../_types/ISkill';
+import { IEnhancedProject } from '../_types/IEnhancedProject';
 
 export default async function ProjectList() {
   const allProjects = await getProjects();
@@ -13,12 +14,15 @@ export default async function ProjectList() {
   const allSubCategories = await getSubcategories();
   const allSkills = await getSkills();
 
-  const enhancedProjectsData = allProjects.map((item: IProject) => {
+  const enhancedProjectsData: IEnhancedProject[] = allProjects.map((item: IProject) => {
 
     const positionsData = item.positions.map((position) => {
         return {
             ...position,
-            skills: position.skills.map((skillId) => allSkills.filter((skill: ISkill) => skill.id === skillId)[0].name)
+            skills: position.skills.map((skillId) => {
+                const { id, name } = allSkills.filter((skill: ISkill) => skill.id === skillId)[0];
+                return {id, name};
+            })
         }
     })
     return {
@@ -32,7 +36,7 @@ export default async function ProjectList() {
     return (
         <Box sx={{ flexGrow: 1 }}>
             {
-                enhancedProjectsData.map((project: IProject) => {
+                enhancedProjectsData.map((project: IEnhancedProject) => {
                     return <ProjectItem key={project.id} project={project} />
                 })
             }

@@ -22,6 +22,7 @@ export const CardContainer = styled(Box)(({ theme }) => ({
   },
   '@media only screen and (max-width: 728px)': {
      padding: '15px 13px',
+     flexDirection: 'column',
   },
 }));
 
@@ -32,6 +33,9 @@ export const LogoSection = styled(Box)(({ theme }) => ({
   alignItems: 'center',
   marginRight: '5px',
   flexShrink: 0,
+  '@media only screen and (max-width: 728px)': {
+    marginRight: '15px',
+  },
 }));
 
 export const BrandNameText = styled(Typography)({
@@ -46,6 +50,10 @@ export const DetailsSection = styled(Box)(({ theme }) => ({
   flexDirection: 'column',
   justifyContent: 'space-between',
   padding: '0px 5px 0 10px',
+  '@media only screen and (max-width: 728px)': {
+    flexDirection: 'row',
+    padding: '0'
+  },
 }));
 
 export const TitleText = styled(Typography)({
@@ -93,6 +101,9 @@ export const ArrowSection = styled(Box)(({ theme }) => ({
   justifyContent: 'center',
   width: 30,
   flexShrink: 0,
+  '@media only screen and (max-width: 728px)': {
+     display: 'none',
+  },
 }));
 
 export const ArrowIcon = styled(Box)({

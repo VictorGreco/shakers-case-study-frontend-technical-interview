@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box } from '@mui/material';
 import styled from 'styled-components';
-import { IPosition } from '../_types/IPosition';
+import { IEnhancedPosition } from '../_types/IEnhancedPosition';
 
 export const ReferralBanner = styled(Box)(({ theme }) => ({
   backgroundColor: '#EDF7F6',
@@ -15,7 +15,7 @@ export const ReferralBanner = styled(Box)(({ theme }) => ({
 }));
 
 interface ReferralBannerComponentProps {
-    positions: IPosition[];
+    positions: IEnhancedPosition[];
 }
 
 const ReferralBannerComponent = ({ positions }: ReferralBannerComponentProps) => {

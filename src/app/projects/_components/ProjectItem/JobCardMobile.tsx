@@ -9,15 +9,13 @@ import {
   MetadataText,
   TechStackContainer,
   TechTagChip,
-  ArrowSection,
-  ArrowIcon,
 } from './JobCard.styles';
 import ReferralBannerComponent from '../ReferralBanner/ReferralBanner';
 import CompanyLogo from '../CompanyLogo/CompanyLogo';
 import { IProjectProps } from './ProjectItem';
 import { onlyUnique } from '@/app/_lib/arrayUtils';
 
-const JobCard = ({ project }: IProjectProps) => {
+const JobCardMobile = ({ project }: IProjectProps) => {
     const techStack = project.positions
         .map((position) => position.skills)
         .reduce((acc, curr) => [...curr, ...acc], [])
@@ -43,21 +41,24 @@ const JobCard = ({ project }: IProjectProps) => {
       {/* Main Card */}
       <CardContainer>
         {/* Left Section: Logo and Brand Name */}
-        <LogoSection>
+
+
+        {/* Middle Section: Details */}
+        <DetailsSection>
+          <LogoSection>
           {/* In a real app, this would be an <img> tag or a Next.js <Image> component */}
           <CompanyLogo src={ project.organization[0].logo }/>
           <BrandNameText variant="caption">{project.organization[0].name.split("").slice(0, 10).join("")}</BrandNameText>
         </LogoSection>
-
-        {/* Middle Section: Details */}
-        <DetailsSection>
           <Box>
             <TitleText variant="h6">{project.title}</TitleText>
             <MetadataText variant="body2">{formattedMetadata}</MetadataText>
           </Box>
 
           {/* Tech Stack Chips */}
-          <TechStackContainer>
+
+        </DetailsSection>
+                  <TechStackContainer>
             {techStack.map((skillName) => (
               <TechTagChip
                 key={skillName}
@@ -66,16 +67,10 @@ const JobCard = ({ project }: IProjectProps) => {
               />
             ))}
           </TechStackContainer>
-        </DetailsSection>
-
-        {/* Right Section: Arrow */}
-        <ArrowSection>
-          <ArrowIcon />
-        </ArrowSection>
       </CardContainer>
       
     </Box>
   );
 };
 
-export default JobCard;
+export default JobCardMobile;

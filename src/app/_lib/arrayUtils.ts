@@ -1,1 +1,1 @@
-export const onlyUnique = (value, index, array) => array.indexOf(value) === index;
+export const onlyUnique = (value: unknown, index: number, array: unknown[]) => array.indexOf(value) === index;

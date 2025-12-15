@@ -2,19 +2,25 @@
 
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import { IProject } from '../_types/IProject';
 import JobCard from './JobCard';
+import { IEnhancedProject } from '../_types/IEnhancedProject';
+import JobCardMobile from './JobCardMobile';
 
 export interface IProjectProps {
-project: IProject;
+project: IEnhancedProject;
 key?: number | string;
 }
 
 export default function ProjectItem ({ project }: IProjectProps) {
     console.log(project);
-    return (
-        <Box sx={{ flexGrow: 1 }}>
+    return (<>
+        <Box sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}>
             <JobCard project={project}/>
         </Box>
+        <Box sx={{ flexGrow: 1, display: { xs: 'block', md: 'none' } }}>
+            <JobCardMobile project={project}/>
+        </Box>
+    </>
+
     );
 }

@@ -1,7 +1,6 @@
 import React from 'react';
 import { Box } from '@mui/material';
 import styled from 'styled-components';
-import { IPosition } from '../_types/IPosition';
 
 export const LogoPlaceholder = styled(Box)(({ theme }) => ({
   width: 80,
