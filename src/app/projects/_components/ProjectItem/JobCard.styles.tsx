@@ -1,6 +1,5 @@
-import React from 'react';
 import styled from 'styled-components';
-import { Box, Typography, Chip, useTheme } from '@mui/material';
+import { Box, Typography, Chip } from '@mui/material';
 
 // --- Styled Components ---
 
