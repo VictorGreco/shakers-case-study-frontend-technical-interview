@@ -28,7 +28,7 @@ const StyledAppBar = styled(AppBar)`
   @media only screen and (max-width: 728px) {
     height: 68px;
     padding: 0px;
-    box-shadow: inset 0px -27px 50px -30px gray!important;
+    box-shadow: inset 0px -35px 28px -50px gray!important;
   }
 `;
 

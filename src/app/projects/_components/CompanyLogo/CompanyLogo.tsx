@@ -24,7 +24,9 @@ export const LogoPlaceholder = styled(Box)(({ theme }) => ({
     width: 48,
     height: 48,
     fontSize: '2rem',
-
+    '&::before': {
+     fontSize: '2rem',
+  },
   },
 }));
 

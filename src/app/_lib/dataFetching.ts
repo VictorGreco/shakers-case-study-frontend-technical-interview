@@ -36,3 +36,54 @@ export const getProjects = async () => {
 
   return res.json();
 };
+
+export const getCategories = async () => {
+  const accessToken = await getAccessToken();
+
+  const res = await fetch(`${process.env.PROJECTS_API_DOMAIN}/v1/categories`, {
+    headers: {
+      "Authorization": `Bearer ${accessToken}`,
+    },
+    next: { revalidate: 3600 }
+  } );
+
+  if (!res.ok) {
+    throw new Error('Failed to fetch categories');
+  }
+
+  return res.json();
+};
+
+export const getSubcategories = async () => {
+  const accessToken = await getAccessToken();
+
+  const res = await fetch(`${process.env.PROJECTS_API_DOMAIN}/v1/subcategories`, {
+    headers: {
+      "Authorization": `Bearer ${accessToken}`,
+    },
+    next: { revalidate: 3600 }
+  } );
+
+  if (!res.ok) {
+    throw new Error('Failed to fetch subcategories');
+  }
+
+  return res.json();
+};
+
+export const getSkills = async () => {
+  const accessToken = await getAccessToken();
+
+  const res = await fetch(`${process.env.PROJECTS_API_DOMAIN}/v1/skills`, {
+    headers: {
+      "Authorization": `Bearer ${accessToken}`,
+    },
+    next: { revalidate: 3600 }
+  } );
+
+  if (!res.ok) {
+    throw new Error('Failed to fetch subcategories');
+  }
+
+  return res.json();
+};

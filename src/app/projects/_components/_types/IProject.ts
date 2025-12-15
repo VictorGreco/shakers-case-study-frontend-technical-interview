@@ -7,8 +7,8 @@ import { IProjectLeader } from "./IProjectLeader";
 export interface IProject {
     id: number;
     title: string;
-    organization: IOrganization;
-    projectLeader: IProjectLeader;
+    organization: IOrganization[];
+    projectLeader: IProjectLeader[];
     category: number;
     subcategory: number;
     startDate: string;

@@ -1,0 +1,1 @@
+export const onlyUnique = (value, index, array) => array.indexOf(value) === index;

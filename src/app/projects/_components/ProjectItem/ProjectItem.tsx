@@ -5,13 +5,13 @@ import Box from '@mui/material/Box';
 import { IProject } from '../_types/IProject';
 import JobCard from './JobCard';
 
-export interface IProjectItem {
+export interface IProjectProps {
 project: IProject;
-key: number | string;
+key?: number | string;
 }
 
-export default function ProjectItem ({ project }: IProjectItem) {
-
+export default function ProjectItem ({ project }: IProjectProps) {
+    console.log(project);
     return (
         <Box sx={{ flexGrow: 1 }}>
             <JobCard project={project}/>
