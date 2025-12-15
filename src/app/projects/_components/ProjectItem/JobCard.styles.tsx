@@ -9,7 +9,6 @@ export const CardContainer = styled(Box)(({ theme }) => ({
   alignItems: 'stretch',
   border: '1px solid #e0e0e0',
   borderRadius: '5px',
-  padding: '20px',
   backgroundColor: '#ffffff',
   boxShadow: '0 2px 4px rgba(0, 0, 0, 0.05)',
   position: 'relative',
@@ -20,7 +19,6 @@ export const CardContainer = styled(Box)(({ theme }) => ({
     boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
   },
   '@media only screen and (max-width: 728px)': {
-     padding: '15px 13px',
      flexDirection: 'column',
   },
 }));
@@ -32,14 +30,19 @@ export const LogoSection = styled(Box)(({ theme }) => ({
   alignItems: 'center',
   marginRight: '5px',
   flexShrink: 0,
+  margin: '20px',
   '@media only screen and (max-width: 728px)': {
     marginRight: '15px',
+    margin: '0px',
+
   },
 }));
 
 export const BrandNameText = styled(Typography)({
   fontSize: '0.75rem',
   color: '#757575',
+  margin: '15px 13px',
+
 });
 
 // 4. Middle Section (Details)
@@ -49,9 +52,11 @@ export const DetailsSection = styled(Box)(({ theme }) => ({
   flexDirection: 'column',
   justifyContent: 'space-between',
   padding: '0px 5px 0 10px',
+  margin: '20px',
   '@media only screen and (max-width: 728px)': {
     flexDirection: 'row',
-    padding: '0'
+    padding: '0',
+    margin: '20px 10px 20px 5px'
   },
 }));
 
@@ -71,12 +76,18 @@ export const MetadataText = styled(Typography)(({ theme }) => ({
     color: '#757575', // Separator color
     margin: '0 4px',
   },
+
 }));
 
 export const TechStackContainer = styled(Box)({
   display: 'flex',
   flexWrap: 'wrap',
   gap: '8px',
+  '@media only screen and (max-width: 728px)': {
+    flexDirection: 'row',
+    padding: '0',
+    margin: '  0 20px 20px 20px'
+  },
 });
 
 // 5. Tech Tag Chip
@@ -100,6 +111,9 @@ export const ArrowSection = styled(Box)(({ theme }) => ({
   justifyContent: 'center',
   width: 30,
   flexShrink: 0,
+  padding: '0 0 0 10px',
+  'border-left': '1px solid #e0e0e0',
+  margin: '0 15px 0 0',
   '@media only screen and (max-width: 728px)': {
      display: 'none',
   },

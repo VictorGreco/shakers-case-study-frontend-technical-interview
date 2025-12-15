@@ -10,12 +10,12 @@ import {
   TechStackContainer,
   TechTagChip,
   ArrowSection,
-  ArrowIcon,
 } from './JobCard.styles';
 import ReferralBannerComponent from '../ReferralBanner/ReferralBanner';
 import CompanyLogo from '../CompanyLogo/CompanyLogo';
 import { IProjectProps } from './ProjectItem';
 import { onlyUnique } from '@/app/_lib/arrayUtils';
+import ArrowIcon from '../ArrowIcon/ArrowIcon';
 
 const JobCard = ({ project }: IProjectProps) => {
     const techStack = project.positions
