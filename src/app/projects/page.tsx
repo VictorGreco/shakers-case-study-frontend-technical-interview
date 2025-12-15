@@ -1,21 +1,16 @@
-import Image from "next/image";
 import styles from "../page.module.css";
+import { Suspense } from 'react';
+import CustomLoader from "./_components/customLoader/customLoader";
+import ProjectsList from "./_components/ProjectsList/ProjectsList";
 
-export default function Projects() {
+export default async function ProjectsPage() {
+
   return (
     <div className={styles.page}>
       <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>This is the main projects page</h1>
-        </div>
+            <Suspense fallback={<CustomLoader />}> 
+              <ProjectsList />
+            </Suspense>
       </main>
     </div>
   );
