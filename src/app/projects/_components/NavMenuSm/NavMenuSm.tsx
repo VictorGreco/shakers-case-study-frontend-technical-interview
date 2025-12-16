@@ -7,7 +7,7 @@ import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '../Icons/MenuIcon/MenuIcon';
 import MenuItem from '@mui/material/MenuItem';
-import ShakersIcon from '../ShakersIcon/ShakersIcon';
+import ShakersIcon from '../Icons/ShakersIcon/ShakersIcon';
 
 interface Page {
     name: string;

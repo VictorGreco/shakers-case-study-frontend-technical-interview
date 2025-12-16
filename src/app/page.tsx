@@ -7,20 +7,22 @@ export default function Home() {
   return (
     <div className={styles.page}>
       <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/shakers.svg"
-          alt="Next.js logo"
-          width={100}
-          height={100}
-          priority
-        />
         <div className={styles.intro}>
-          <h1>Bienvenido a Shakers</h1>
+            <Image
+            className={styles.logo}
+            src="/shakers.svg"
+            alt="Next.js logo"
+            width={100}
+            height={100}
+            priority
+          />
+          <div><h1>
+            Bienvenido a Shakers
+          </h1>
           <p>
             Estas buscando nuevos retos?{" "}
             Revisa nuestros proyectos.
-          </p>
+          </p></div>
         </div>
         <div className={styles.ctas}>
           <Link className={styles.primary} href="/projects">
