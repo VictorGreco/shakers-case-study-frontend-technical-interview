@@ -9,6 +9,7 @@ import Typography from '@mui/material/Typography';
 import FilterIcon from '../Icons/FilterIcon/FilterIcon';
 import styled from 'styled-components';
 import FilterField from '../FilterField/FilterField';
+import { FormControlLabelProps, FormControlLabel, useRadioGroup, RadioGroup, Radio, Button } from '@mui/material';
 
 const style = {
   position: 'absolute',
@@ -17,9 +18,11 @@ const style = {
   transform: 'translate(-50%, -50%)',
   width: 400,
   bgcolor: 'background.paper',
-  border: '2px solid #000',
+  border:'none',
   boxShadow: 24,
   p: 4,
+  borderRadius: '4px',
+  minWidth: '600px',
 };
 
 export const FilterButton = styled(Box)(({ theme }) => ({
@@ -36,10 +39,30 @@ export const FilterButton = styled(Box)(({ theme }) => ({
 
 export const ModalTitle = styled(Typography)(({ theme }) => ({
     fontSize: '24px',
+    color: '#0D0D0D',
+    lineHeight: '140%',
+    fontWeight: 400,
 }));
+
 export const FilterTitle = styled(Typography)(({ theme }) => ({
-    fontSize: '24px',
-}));
+    fontSize: '16px',
+    color: '#181B1A',
+    lineHeight: '22px',
+    fontWeight: 400,
+})); 
+
+function MyFormControlLabel(props: FormControlLabelProps) {
+  const radioGroup = useRadioGroup();
+
+  let checked = false;
+
+  if (radioGroup) {
+    checked = radioGroup.value === props.value;
+  }
+
+  return <FormControlLabel checked={checked} {...props} />;
+}
+
 
 interface filterData {
     allSubCategories: string[];
@@ -150,14 +173,14 @@ export default function CustomFilter ({ filterData }: CustomFilterProps) {
           backdrop: {
             sx: {
                 backdropFilter: "blur(3px)",
-                backgroundColor:'rgba(0,0,30,0.4)'
+                backgroundColor:'rgba(0,0,30,0.4)',
             },
             timeout: 500,
           },
         }}
       >
         <Fade in={open}>
-          <Box sx={style}>
+          <Box sx={style} >
             <ModalTitle id="transition-modal-title" variant="h6">
               Filtrat Proyectos
             </ModalTitle>
@@ -175,6 +198,25 @@ export default function CustomFilter ({ filterData }: CustomFilterProps) {
                     )
                 })
             }
+            <Box>
+              <FilterTitle id="transition-modal-description" sx={{ mt: 2 }}>
+                Ordernar por           
+              </FilterTitle>
+
+              <RadioGroup name="use-radio-group" defaultValue="first">
+                <MyFormControlLabel value="asc" label="Fecha de publicación (Más reciente primero)" control={<Radio />} />
+                <MyFormControlLabel value="desc" label="Fecha de publicación (Más antiguo primero)" control={<Radio />} />
+              </RadioGroup>
+            </Box>
+            <Box sx={{ display: 'flex', justifyContent: 'space-around' }}>
+              <Button color="error">
+                Eliminar filtros
+              </Button>
+
+                <Button variant="contained" size="large" sx={{ width: '40%', backgroundColor: '#033028'  }}>
+                  Filtrar
+                </Button>
+            </Box>
           </Box>
         </Fade>
       </Modal>

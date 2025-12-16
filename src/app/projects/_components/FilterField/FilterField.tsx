@@ -61,7 +61,23 @@ const MenuProps = {
 };
 
 export const FilterTitle = styled(Typography)(({ theme }) => ({
-    fontSize: '24px',
+    fontSize: '16px',
+    color: '#181B1A',
+    lineHeight: '22px',
+    fontWeight: 400,
+}));
+
+const StyledFormControl = styled(FormControl)(({ theme }) => ({
+    width: '70%!important',
+}));
+
+const StyledSelect = styled(Select)(({ theme }) => ({
+    padding: '6px 0 6px 0',
+    display: 'flex',
+    justifyContent: 'space-between',
+    borderRadius: '4px',
+    color: '#AEB7B4',
+
 }));
 
 interface FilterState {
@@ -87,7 +103,7 @@ interface FilterFieldProps {
 
 export default function FilterField({ filterKey, title, values, updateFilterValues, updateFilterOperators, filters }:FilterFieldProps) {
   const theme = useTheme();
-  const handleValueChange = (event: SelectChangeEvent<string[]>) => {
+  const handleValueChange = (event: SelectChangeEvent<string[]>) => { // TODO: Fix value change with redux
     console.log("update value");
     const { target: { value } } = event;
 
@@ -104,29 +120,23 @@ export default function FilterField({ filterKey, title, values, updateFilterValu
     updateFilterOperators(filterKey, typeof value === 'string' ? value.split(',') : value);
   }
   const OPERATORS = ['Y', 'O'];
+  console.log(values);
   return (
-    
         <Box>
             <FilterTitle id="transition-modal-description" sx={{ mt: 2 }}>
             {title}             
             </FilterTitle>
 
-            <FormControl sx={{ m: 1, width: 300 }} variant="standard">
+            <StyledFormControl sx={{ m: 1, width: 300 }} variant="standard">
                 <InputLabel id="demo-multiple-chip-label">Chip</InputLabel>
-                <Select
+                <StyledSelect
                 labelId="demo-multiple-chip-label"
                 id="demo-multiple-chip"
+                displayEmpty
                 multiple
                 value={[]}
-                onChange={handleValueChange}
+                onChange={() => {}}
                 input={<OutlinedInput id="select-multiple-chip" label="Chip" />}
-                renderValue={(selected) => (
-                    <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
-                    {selected.map((value, index) => (
-                        <Chip key={`${value}-${index}`} label={value} />
-                    ))}
-                    </Box>
-                )}
                 MenuProps={MenuProps}
                 >
                 {values.map((value, index) => (
@@ -138,15 +148,16 @@ export default function FilterField({ filterKey, title, values, updateFilterValu
                         {value}
                     </MenuItem>
                 ))}
-                </Select>
-            </FormControl>
+                </StyledSelect>
+            </StyledFormControl>
             <FormControl sx={{ m: 1 }} variant="standard">
                 <InputLabel id="demo-customized-select-label">Age</InputLabel>
-                <Select
+                <StyledSelect
                 labelId="demo-customized-select-label"
                 id="demo-customized-select"
+                displayEmpty
                 value={OPERATORS}
-                onChange={handleOperatorsChange}
+                onChange={() => {}}
                 input={<BootstrapInput />}
                 >
                 {OPERATORS.map((value, index) => (
@@ -158,7 +169,7 @@ export default function FilterField({ filterKey, title, values, updateFilterValu
                         {value}
                     </MenuItem>
                 ))}
-                </Select>
+                </StyledSelect>
             </FormControl>
         </Box>
   );
