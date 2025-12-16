@@ -6,6 +6,7 @@ import DetailsTopSection from '../DetailTopSection/DetailsTopSection';
 import { ISpecialtie } from '../_types/ISpecialtie';
 import { IIndustry } from '../_types/IIndustry';
 import DetailsBodySection from '../DetailsBodySection/DetailsBodySection';
+import DetailsBottomSection from '../DetailsBottomSection/DetailsBottomSection';
 
 
 export default async function ProjectDetails({ id }: { id: string }) {
@@ -15,7 +16,7 @@ export default async function ProjectDetails({ id }: { id: string }) {
 
     const projectDetails = await getProjectDetails(id);
 
-    const { title, positions, startDate, totalHours, totalApplicationsAmount, budget, organization, description, goals, faqs }: IProject = projectDetails;
+    const { title, positions, startDate, totalHours, totalApplicationsAmount, budget, organization, description, goals, faqs, projectLeader }: IProject = projectDetails;
 
     const enhancedPositions = positions.map((position) => {
         const specialties = position.specialties.map((specialtie) => {
@@ -35,14 +36,9 @@ export default async function ProjectDetails({ id }: { id: string }) {
 
     const enhancedIndustry = industriesCatalog.filter((industry: IIndustry) => industry.id === organization[0].industry)[0];
 
-    console.log(projectDetails)
-
     const enhancedBudget = budget.hourFrom && budget.hourTo ?
         `${(budget.hourTo+budget.hourFrom)/2*totalHours}` :
         `${budget.total}`;
-
-        console.log(enhancedIndustry.name)
-
 
     return (
         <Box sx={{  width: '100%' }}>
@@ -57,6 +53,8 @@ export default async function ProjectDetails({ id }: { id: string }) {
                  industryName={enhancedIndustry.name}
                 />
             <DetailsBodySection description={description} goals={goals} faqs={faqs} />
+            <DetailsBottomSection projectLeader={projectLeader[0]} positions={enhancedPositions} organization={organization[0]} />
+
         </Box>
     );
 }

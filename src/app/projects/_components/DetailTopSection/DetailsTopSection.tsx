@@ -65,7 +65,6 @@ export const TechStackContainer = styled(Box)({
   '@media only screen and (max-width: 728px)': {
     flexDirection: 'row',
     padding: '0',
-    margin: '  0 20px 20px 20px'
   },
 });
 
