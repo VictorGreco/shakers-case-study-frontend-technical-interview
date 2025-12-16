@@ -87,3 +87,54 @@ export const getSkills = async () => {
 
   return res.json();
 };
+
+export const getIndustries = async () => {
+  const accessToken = await getAccessToken();
+
+  const res = await fetch(`${process.env.PROJECTS_API_DOMAIN}/v1/industries`, {
+    headers: {
+      "Authorization": `Bearer ${accessToken}`,
+    },
+    next: { revalidate: 3600 }
+  } );
+
+  if (!res.ok) {
+    throw new Error('Failed to fetch industries');
+  }
+
+  return res.json();
+};
+
+export const getProjectDetails = async (id: string) => {
+  const accessToken = await getAccessToken();
+
+  const res = await fetch(`${process.env.PROJECTS_API_DOMAIN}/v1/projects/${id}`, {
+    headers: {
+      "Authorization": `Bearer ${accessToken}`,
+    },
+    next: { revalidate: 3600 }
+  } );
+
+  if (!res.ok) {
+    throw new Error('Failed to fetch single project');
+  }
+
+  return res.json();
+};
+
+export const getSpecialties = async () => {
+  const accessToken = await getAccessToken();
+
+  const res = await fetch(`${process.env.PROJECTS_API_DOMAIN}/v1/specialties`, {
+    headers: {
+      "Authorization": `Bearer ${accessToken}`,
+    },
+    next: { revalidate: 3600 }
+  } );
+
+  if (!res.ok) {
+    throw new Error('Failed to fetch specialties');
+  }
+
+  return res.json();
+};

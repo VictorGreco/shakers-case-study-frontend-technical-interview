@@ -15,7 +15,7 @@ import ReferralBannerComponent from '../ReferralBanner/ReferralBanner';
 import CompanyLogo from '../CompanyLogo/CompanyLogo';
 import { IProjectProps } from './ProjectItem';
 import { onlyUnique } from '@/app/_lib/arrayUtils';
-import ArrowIcon from '../ArrowIcon/ArrowIcon';
+import ArrowIcon from '../Icons/ArrowIcon/ArrowIcon';
 
 const JobCard = ({ project }: IProjectProps) => {
     const techStack = project.positions
@@ -23,7 +23,6 @@ const JobCard = ({ project }: IProjectProps) => {
         .reduce((acc, curr) => [...curr, ...acc], [])
         .map((skill) => skill.name)
         .filter(onlyUnique);
-    console.log(techStack);
     const { hourFrom, hourTo, total } = project.budget;
     const getBudgetString = hourFrom && hourTo ? `${hourFrom}-${hourTo}`: `${total}` ;
     const metadata = [project.category, project.subcategory, `${getBudgetString} €`, `${project.totalHours}h/month`];
@@ -37,7 +36,7 @@ const JobCard = ({ project }: IProjectProps) => {
     ));
 
   return (
-    <Box sx={{ maxWidth: 800, margin: 'auto' }}>
+    <Box sx={{ margin: 'auto' }}>
       <ReferralBannerComponent positions={project.positions} />
 
       {/* Main Card */}

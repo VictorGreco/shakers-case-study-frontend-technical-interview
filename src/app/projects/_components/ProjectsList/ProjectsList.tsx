@@ -1,18 +1,24 @@
 import Box from '@mui/material/Box';
 import ProjectItem from '../ProjectItem/ProjectItem';
-import { getCategories, getProjects, getSkills, getSubcategories } from '@/app/_lib/dataFetching';
+import { getCategories, getIndustries, getProjects, getSkills, getSubcategories } from '@/app/_lib/dataFetching';
 
 import { IProject } from '../_types/IProject';
 import { ICategory } from '../_types/ICategory';
 import { ISubcategory } from '../_types/ISubcategory';
 import { ISkill } from '../_types/ISkill';
 import { IEnhancedProject } from '../_types/IEnhancedProject';
+import CustomFilter from '../CustomFilter/CustomFilter';
+interface FilterDataItem {
+    id: number;
+    name: string;
+}
 
 export default async function ProjectList() {
   const allProjects = await getProjects();
-  const allCategories = await getCategories();
-  const allSubCategories = await getSubcategories();
-  const allSkills = await getSkills();
+  const allCategories: ICategory[]  = await getCategories();
+  const allSubCategories: ISubcategory[] = await getSubcategories();
+  const allSkills: ISkill[]  = await getSkills();
+  const allIndustries: FilterDataItem[]  = await getIndustries();
 
   const enhancedProjectsData: IEnhancedProject[] = allProjects.map((item: IProject) => {
 
@@ -32,14 +38,25 @@ export default async function ProjectList() {
         positions: positionsData
     };
   })
+  const filterData = {
+    allSubCategories: allSubCategories.map(item => item.name), 
+    allSkills: allSkills.map(item => item.name), 
+    allCategories: allCategories.map(item => item.name), 
+    allIndustries: allIndustries.map(item => item.name)
+  }
 
-    return (
-        <Box sx={{ flexGrow: 1 }}>
-            {
-                enhancedProjectsData.map((project: IEnhancedProject) => {
-                    return <ProjectItem key={project.id} project={project} />
-                })
-            }
-        </Box>
+    return (<>
+    <Box sx={{ flexGrow: 1, width: '100%', display: 'flex', justifyContent: 'flex-end' }}>
+        <CustomFilter filterData={filterData}/>
+    </Box>
+    <Box sx={{ flexGrow: 1, width: '100%' }}>
+        
+        {
+            enhancedProjectsData.map((project: IEnhancedProject) => {
+                return <ProjectItem key={project.id} project={project} />
+            })
+        }
+    </Box>
+    </>
     );
 }

@@ -21,7 +21,6 @@ const JobCardMobile = ({ project }: IProjectProps) => {
         .reduce((acc, curr) => [...curr, ...acc], [])
         .map((skill) => skill.name)
         .filter(onlyUnique);
-    console.log(techStack);
     const { hourFrom, hourTo, total } = project.budget;
     const getBudgetString = hourFrom && hourTo ? `${hourFrom}-${hourTo}`: `${total}` ;
     const metadata = [project.category, project.subcategory, `${getBudgetString} €`, `${project.totalHours}h/month`];
@@ -35,7 +34,7 @@ const JobCardMobile = ({ project }: IProjectProps) => {
     ));
 
   return (
-    <Box sx={{ maxWidth: 800, margin: 'auto' }}>
+    <Box sx={{ margin: 'auto' }}>
       <ReferralBannerComponent positions={project.positions} />
 
       {/* Main Card */}

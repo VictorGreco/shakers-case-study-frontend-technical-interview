@@ -5,7 +5,7 @@ import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
-import MenuIcon from '../MenuIcon/MenuIcon';
+import MenuIcon from '../Icons/MenuIcon/MenuIcon';
 import MenuItem from '@mui/material/MenuItem';
 import ShakersIcon from '../ShakersIcon/ShakersIcon';
 

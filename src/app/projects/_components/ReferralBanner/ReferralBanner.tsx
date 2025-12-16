@@ -23,11 +23,8 @@ const ReferralBannerComponent = ({ positions }: ReferralBannerComponentProps) =>
     const higherReferralBonus = positions
         .map((item) => item.referralBonus)
         .sort(compareNumbers)[0];
-
-        console.log(higherReferralBonus);
-
     if (higherReferralBonus) {
-        return (<ReferralBanner>€ ¡Gana hasta {higherReferralBonus} por referir!</ReferralBanner>)
+        return (<ReferralBanner>€ ¡Gana hasta {higherReferralBonus} € por referir!</ReferralBanner>)
     } else {
         return <></>
     }
