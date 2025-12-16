@@ -91,10 +91,10 @@ interface DetailsBottomSectionProps {
 
 export default function DetailsBottomSection({ projectLeader, positions, organization}: DetailsBottomSectionProps) {
     const [appliedState, setAppliedState] = useState(false);
-    const handleAplicationClickButton= (e) => {
+    const handleAplicationClickButton= (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         setAppliedState(true)
     }
-        const handleRemoveAplicationClickButton= (e) => {
+        const handleRemoveAplicationClickButton= (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         setAppliedState(false)
     }
   return (
