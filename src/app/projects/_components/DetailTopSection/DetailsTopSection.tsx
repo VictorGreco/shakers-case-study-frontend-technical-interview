@@ -29,12 +29,12 @@ export const StyledLink = styled(Link)(({ theme }) => ({
   fontWeight: 400,
 }));
 
-export const StyledTypography= styled(Typography)(({ theme }) => ({
+export const StyledTypography = styled(Typography)(({ theme }) => ({
   fontSize: '12px!important',
   fontWeight: 400,
 }));
 
-export const StyledTitle= styled(Typography)(({ theme }) => ({
+export const StyledTitle = styled(Typography)(({ theme }) => ({
   fontSize: '24px!important',
   fontWeight: 400,
   color: '#ffffff',
@@ -42,7 +42,7 @@ export const StyledTitle= styled(Typography)(({ theme }) => ({
   marginBottom: '10px',
 }));
 
-export const StyledSubTitle= styled(Typography)(({ theme }) => ({
+export const StyledSubTitle = styled(Typography)(({ theme }) => ({
   fontSize: '18px!important',
   fontWeight: 400,
   color: '#ffffff',
@@ -51,7 +51,7 @@ export const StyledSubTitle= styled(Typography)(({ theme }) => ({
   marginBottom: '5px',
 }));
 
-export const StyledBox= styled(Box)(({ theme }) => ({
+export const StyledBox = styled(Box)(({ theme }) => ({
   backgroundColor: '#033028',
   borderRadius: '6px',
   color: '#ffffff',
@@ -108,39 +108,39 @@ export default function DetailsTopSection({ title, subtitle, startDate, totalHou
   return (
     <StyledBox sx={{ flexGrow: 1, display: { xs: 'flex', flexDirection: 'column' } }}>
       <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-        <StyledTitle sx={{ color: 'text.primary'}}>
+        <StyledTitle sx={{ color: 'text.primary' }}>
           <span>{title}</span>
         </StyledTitle>
         <CustomTag
           label={industryName}
           variant="outlined"
-          />
+        />
       </Box>
-        <StyledSubTitle sx={{ color: 'text.primary' }}>{subtitle}</StyledSubTitle>
-          {/* Tech Stack Chips */}
-          <TechStackContainer>
-            <TechTagChip
-               icon={<CalendarIcon />}
-                label={`Inicio: ${formatDateToDDMMYYYY(startDate)}`}
-                variant="outlined"
-              />
-              <TechTagChip
-                icon={<ClockIcon />}
-                label={`${totalHours} horas`}
-                variant="outlined"
-              />
-              <TechTagChip
-                icon={<EuroIcon />}
-                label={`${budget} € (Estimado)`}
-                variant="outlined"
-              />
-              <TechTagChip
-                icon={<PeopleIcon />}
-                label={`${totalApplicationsAmount} Talentos`}
-                variant="outlined"
-              />
-          </TechStackContainer>
-     
+      <StyledSubTitle sx={{ color: 'text.primary' }}>{subtitle}</StyledSubTitle>
+      {/* Tech Stack Chips */}
+      <TechStackContainer>
+        <TechTagChip
+          icon={<CalendarIcon />}
+          label={`Inicio: ${formatDateToDDMMYYYY(startDate)}`}
+          variant="outlined"
+        />
+        <TechTagChip
+          icon={<ClockIcon />}
+          label={`${totalHours} horas`}
+          variant="outlined"
+        />
+        <TechTagChip
+          icon={<EuroIcon />}
+          label={`${budget} € (Estimado)`}
+          variant="outlined"
+        />
+        <TechTagChip
+          icon={<PeopleIcon />}
+          label={`${totalApplicationsAmount} Talentos`}
+          variant="outlined"
+        />
+      </TechStackContainer>
+
     </StyledBox>
   );
 }

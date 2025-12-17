@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import { IFaq } from '../_types/IFaq';
 import CustomAccordion from '../CustomAccordion/CustomAccordion';
 
-export const StyledTitle= styled(Typography)(({ theme }) => ({
+export const StyledTitle = styled(Typography)(({ theme }) => ({
   fontSize: '18px!important',
   fontWeight: 400,
   color: '#033028',
@@ -15,7 +15,7 @@ export const StyledTitle= styled(Typography)(({ theme }) => ({
   marginBottom: '10px'
 }));
 
-export const StyledSubTitle= styled(Typography)(({ theme }) => ({
+export const StyledSubTitle = styled(Typography)(({ theme }) => ({
   fontSize: '16px!important',
   fontWeight: 400,
   color: '#033028',
@@ -25,7 +25,7 @@ export const StyledSubTitle= styled(Typography)(({ theme }) => ({
   marginBottom: '10px'
 }));
 
-export const ParagraphText= styled(Typography)(({ theme }) => ({
+export const ParagraphText = styled(Typography)(({ theme }) => ({
   fontSize: '14px!important',
   fontWeight: 400,
   color: '#555E5C',
@@ -39,29 +39,29 @@ interface DetailsBodySectionProps {
   faqs: IFaq[];
 }
 
-export default function DetailsBodySection({ description, goals, faqs}: DetailsBodySectionProps) {
+export default function DetailsBodySection({ description, goals, faqs }: DetailsBodySectionProps) {
 
   return (
     <Box sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
       <Box>
-        <StyledTitle sx={{ color: 'text.primary'}}>
+        <StyledTitle sx={{ color: 'text.primary' }}>
           <span>Descripción del proyecto</span>
         </StyledTitle>
         <ParagraphText>{description}</ParagraphText>
       </Box>
       <Box>
         <StyledSubTitle sx={{ color: 'text.primary' }}>
-            ¿Cuáles son los objetivos y tareas a realizar?
+          ¿Cuáles son los objetivos y tareas a realizar?
         </StyledSubTitle>
         <ParagraphText>{goals.join(' ')}</ParagraphText>
-       </Box>
-        <Box>
-            <StyledTitle sx={{ color: 'text.primary'}}>
-            <span>Preguntas Frecuentes</span>
-            </StyledTitle>
-            <CustomAccordion faqs={faqs}/>
       </Box>
-     
+      <Box>
+        <StyledTitle sx={{ color: 'text.primary' }}>
+          <span>Preguntas Frecuentes</span>
+        </StyledTitle>
+        <CustomAccordion faqs={faqs} />
+      </Box>
+
     </Box>
   );
 }

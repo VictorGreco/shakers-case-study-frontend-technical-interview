@@ -27,7 +27,7 @@ export default async function ProjectDetails({ id }: { id: string }) {
             const { id, name } = skilsCatalog.filter((item: ISpecialtie) => item.id === skill)[0];
             return { id, name }
         })
-        return{
+        return {
             ...position,
             specialties,
             skills
@@ -37,21 +37,21 @@ export default async function ProjectDetails({ id }: { id: string }) {
     const enhancedIndustry = industriesCatalog.filter((industry: IIndustry) => industry.id === organization[0].industry)[0];
 
     const enhancedBudget = budget.hourFrom && budget.hourTo ?
-        `${(budget.hourTo+budget.hourFrom)/2*totalHours}` :
+        `${(budget.hourTo + budget.hourFrom) / 2 * totalHours}` :
         `${budget.total}`;
 
     return (
-        <Box sx={{  width: '100%' }}>
+        <Box sx={{ width: '100%' }}>
             <CustomBreadcrumbs title={title} />
             <DetailsTopSection
-                 title={title} 
-                 subtitle={enhancedPositions[0].specialties[0].name}
-                 startDate={startDate}
-                 totalHours={totalHours}
-                 budget={enhancedBudget}
-                 totalApplicationsAmount={totalApplicationsAmount}
-                 industryName={enhancedIndustry.name}
-                />
+                title={title}
+                subtitle={enhancedPositions[0].specialties[0].name}
+                startDate={startDate}
+                totalHours={totalHours}
+                budget={enhancedBudget}
+                totalApplicationsAmount={totalApplicationsAmount}
+                industryName={enhancedIndustry.name}
+            />
             <DetailsBodySection description={description} goals={goals} faqs={faqs} />
             <DetailsBottomSection projectLeader={projectLeader[0]} positions={enhancedPositions} organization={organization[0]} />
 

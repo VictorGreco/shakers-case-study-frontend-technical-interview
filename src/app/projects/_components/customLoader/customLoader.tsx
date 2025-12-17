@@ -8,7 +8,7 @@ export default function CustomLoader() {
   const [progress, setProgress] = React.useState(0);
   const [buffer, setBuffer] = React.useState(10);
 
-  const progressRef = React.useRef(() => {});
+  const progressRef = React.useRef(() => { });
   React.useEffect(() => {
     progressRef.current = () => {
       if (progress === 100) {

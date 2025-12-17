@@ -6,7 +6,7 @@ import { useServerInsertedHTML } from 'next/navigation';
 
 // This implementation is taken directly from the MUI official documentation.
 // It's a standard boilerplate for using MUI with the Next.js App Router.
-export default function NextAppDirEmotionCacheProvider({ options, children }: { options: { key: string }, children: React.ReactElement  }) {
+export default function NextAppDirEmotionCacheProvider({ options, children }: { options: { key: string }, children: React.ReactElement }) {
 
   const [{ cache, flush }] = React.useState(() => {
     const cache = createCache(options);

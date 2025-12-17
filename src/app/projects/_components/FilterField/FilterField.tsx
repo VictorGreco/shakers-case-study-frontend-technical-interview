@@ -61,47 +61,47 @@ const MenuProps = {
 };
 
 export const FilterTitle = styled(Typography)(({ theme }) => ({
-    fontSize: '16px',
-    color: '#181B1A',
-    lineHeight: '22px',
-    fontWeight: 400,
+  fontSize: '16px',
+  color: '#181B1A',
+  lineHeight: '22px',
+  fontWeight: 400,
 }));
 
 const StyledFormControl = styled(FormControl)(({ theme }) => ({
-    width: '70%!important',
+  width: '70%!important',
 }));
 
 const StyledSelect = styled(Select)(({ theme }) => ({
-    padding: '6px 0 6px 0',
-    display: 'flex',
-    justifyContent: 'space-between',
-    borderRadius: '4px',
-    color: '#AEB7B4',
+  padding: '6px 0 6px 0',
+  display: 'flex',
+  justifyContent: 'space-between',
+  borderRadius: '4px',
+  color: '#AEB7B4',
 
 }));
 
 interface FilterState {
-    specialties: IFilter,
-    skills: IFilter,
-    subcategories: IFilter,
-    industries: IFilter,
+  specialties: IFilter,
+  skills: IFilter,
+  subcategories: IFilter,
+  industries: IFilter,
 }
 
 interface IFilter {
-    values: string[];
-    filterOperator: string;
+  values: string[];
+  filterOperator: string;
 }
 interface FilterFieldProps {
-    filterKey: FilterKey;
-    title: string;
-    values: string[];
-    updateFilterValues: (key: FilterKey, newValues: string[]) => void;
-    updateFilterOperators: (key: FilterKey, newOperators: string[]) => void;
-    filters: FilterState;
+  filterKey: FilterKey;
+  title: string;
+  values: string[];
+  updateFilterValues: (key: FilterKey, newValues: string[]) => void;
+  updateFilterOperators: (key: FilterKey, newOperators: string[]) => void;
+  filters: FilterState;
 }
 
 
-export default function FilterField({ filterKey, title, values, updateFilterValues, updateFilterOperators, filters }:FilterFieldProps) {
+export default function FilterField({ filterKey, title, values, updateFilterValues, updateFilterOperators, filters }: FilterFieldProps) {
   const theme = useTheme();
   const handleValueChange = (event: SelectChangeEvent<string[]>) => { // TODO: Fix value change with redux
     console.log("update value");
@@ -122,55 +122,55 @@ export default function FilterField({ filterKey, title, values, updateFilterValu
   const OPERATORS = ['Y', 'O'];
   console.log(values);
   return (
-        <Box>
-            <FilterTitle id="transition-modal-description" sx={{ mt: 2 }}>
-            {title}             
-            </FilterTitle>
+    <Box>
+      <FilterTitle id="transition-modal-description" sx={{ mt: 2 }}>
+        {title}
+      </FilterTitle>
 
-            <StyledFormControl sx={{ m: 1, width: 300 }} variant="standard">
-                <InputLabel id="demo-multiple-chip-label">Chip</InputLabel>
-                <StyledSelect
-                labelId="demo-multiple-chip-label"
-                id="demo-multiple-chip"
-                displayEmpty
-                multiple
-                value={[]}
-                onChange={() => {}}
-                input={<OutlinedInput id="select-multiple-chip" label="Chip" />}
-                MenuProps={MenuProps}
-                >
-                {values.map((value, index) => (
-                    <MenuItem
-                        key={`${value}-${index}`}
-                        value={value}
-                        style={getStyles(value, values, theme)}
-                        >
-                        {value}
-                    </MenuItem>
-                ))}
-                </StyledSelect>
-            </StyledFormControl>
-            <FormControl sx={{ m: 1 }} variant="standard">
-                <InputLabel id="demo-customized-select-label">Age</InputLabel>
-                <StyledSelect
-                labelId="demo-customized-select-label"
-                id="demo-customized-select"
-                displayEmpty
-                value={OPERATORS}
-                onChange={() => {}}
-                input={<BootstrapInput />}
-                >
-                {OPERATORS.map((value, index) => (
-                    <MenuItem
-                        key={`${value}-${index}`}
-                        value={value}
-                        style={getStyles(value, values, theme)}
-                        >
-                        {value}
-                    </MenuItem>
-                ))}
-                </StyledSelect>
-            </FormControl>
-        </Box>
+      <StyledFormControl sx={{ m: 1, width: 300 }} variant="standard">
+        <InputLabel id="demo-multiple-chip-label">Chip</InputLabel>
+        <StyledSelect
+          labelId="demo-multiple-chip-label"
+          id="demo-multiple-chip"
+          displayEmpty
+          multiple
+          value={[]}
+          onChange={() => { }}
+          input={<OutlinedInput id="select-multiple-chip" label="Chip" />}
+          MenuProps={MenuProps}
+        >
+          {values.map((value, index) => (
+            <MenuItem
+              key={`${value}-${index}`}
+              value={value}
+              style={getStyles(value, values, theme)}
+            >
+              {value}
+            </MenuItem>
+          ))}
+        </StyledSelect>
+      </StyledFormControl>
+      <FormControl sx={{ m: 1 }} variant="standard">
+        <InputLabel id="demo-customized-select-label">Age</InputLabel>
+        <StyledSelect
+          labelId="demo-customized-select-label"
+          id="demo-customized-select"
+          displayEmpty
+          value={OPERATORS}
+          onChange={() => { }}
+          input={<BootstrapInput />}
+        >
+          {OPERATORS.map((value, index) => (
+            <MenuItem
+              key={`${value}-${index}`}
+              value={value}
+              style={getStyles(value, values, theme)}
+            >
+              {value}
+            </MenuItem>
+          ))}
+        </StyledSelect>
+      </FormControl>
+    </Box>
   );
 }

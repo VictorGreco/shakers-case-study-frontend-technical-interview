@@ -27,7 +27,7 @@ export const StyledLink = styled(Link)(({ theme }) => ({
   fontWeight: 400,
 }));
 
-export const StyledTypography= styled(Typography)(({ theme }) => ({
+export const StyledTypography = styled(Typography)(({ theme }) => ({
   fontSize: '12px!important',
   fontWeight: 400,
 }));
@@ -37,17 +37,17 @@ export default function CustomBreadcrumbs({ title }: { title: string }) {
   return (
     <Box sx={{ flexGrow: 1, display: { xs: 'none', sm: 'flex', marginBottom: '30px' } }}>
 
-        <div role="presentation" onClick={handleClick}>
+      <div role="presentation" onClick={handleClick}>
         <Breadcrumbs aria-label="breadcrumb">
-            <IconButton onClick={() => window.location.href = '/projects'}>
-                <LeftArrowIcon /> Atrás
-            </IconButton>
-            <StyledLink underline="hover" color="inherit" href="/">
+          <IconButton onClick={() => window.location.href = '/projects'}>
+            <LeftArrowIcon /> Atrás
+          </IconButton>
+          <StyledLink underline="hover" color="inherit" href="/">
             Buscador Proyectos
-            </StyledLink>
-            <StyledTypography sx={{ color: 'text.primary' }}>{title}</StyledTypography>
+          </StyledLink>
+          <StyledTypography sx={{ color: 'text.primary' }}>{title}</StyledTypography>
         </Breadcrumbs>
-        </div>
+      </div>
     </Box>
   );
 }

@@ -4,6 +4,7 @@ import localFont from 'next/font/local'
 
 import "./globals.css";
 import ThemeRegistry from "./projects/_components/ThemeRegistry";
+import Header from "./projects/_components/Header/Header";
 
 const gtPlanar = localFont({
   src: './fonts/GT-Planar-Regular-Trial.woff2',
@@ -22,8 +23,12 @@ export default function RootLayout({
   return (
     <html lang="en" className={gtPlanar.className}>
       <body>
-        <ThemeRegistry>     
-          <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+        <ThemeRegistry>
+          <StyledComponentsRegistry>
+            <section>
+              <Header />
+              {children}
+            </section></StyledComponentsRegistry>
         </ThemeRegistry>
       </body>
     </html>

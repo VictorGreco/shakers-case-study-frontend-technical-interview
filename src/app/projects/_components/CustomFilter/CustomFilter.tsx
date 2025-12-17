@@ -18,7 +18,7 @@ const style = {
   transform: 'translate(-50%, -50%)',
   width: 400,
   bgcolor: 'background.paper',
-  border:'none',
+  border: 'none',
   boxShadow: 24,
   p: 4,
   borderRadius: '4px',
@@ -38,18 +38,18 @@ export const FilterButton = styled(Box)(({ theme }) => ({
 }));
 
 export const ModalTitle = styled(Typography)(({ theme }) => ({
-    fontSize: '24px',
-    color: '#0D0D0D',
-    lineHeight: '140%',
-    fontWeight: 400,
+  fontSize: '24px',
+  color: '#0D0D0D',
+  lineHeight: '140%',
+  fontWeight: 400,
 }));
 
 export const FilterTitle = styled(Typography)(({ theme }) => ({
-    fontSize: '16px',
-    color: '#181B1A',
-    lineHeight: '22px',
-    fontWeight: 400,
-})); 
+  fontSize: '16px',
+  color: '#181B1A',
+  lineHeight: '22px',
+  fontWeight: 400,
+}));
 
 function MyFormControlLabel(props: FormControlLabelProps) {
   const radioGroup = useRadioGroup();
@@ -65,14 +65,14 @@ function MyFormControlLabel(props: FormControlLabelProps) {
 
 
 interface filterData {
-    allSubCategories: string[];
-    allSkills: string[];
-    allCategories: string[];
-    allIndustries: string[];
+  allSubCategories: string[];
+  allSkills: string[];
+  allCategories: string[];
+  allIndustries: string[];
 }
 
 interface CustomFilterProps {
-    filterData: filterData;
+  filterData: filterData;
 }
 
 type FilterItem = {
@@ -85,26 +85,26 @@ export type FilterKey = "specialties" | "skills" | "subcategories" | "industries
 type FilterState = Record<FilterKey, FilterItem>;
 
 const initialState: FilterState = {
-    "specialties": {
-        values: [],
-        filterOperator: ''
-    },
-    "skills": {
-        values: [],
-        filterOperator: '',
-    },
-    "subcategories": {
-        values: [],
-        filterOperator: ''
-    },
-    "industries": {
-        values: [],
-        filterOperator: ''
-    }
-  };
+  "specialties": {
+    values: [],
+    filterOperator: ''
+  },
+  "skills": {
+    values: [],
+    filterOperator: '',
+  },
+  "subcategories": {
+    values: [],
+    filterOperator: ''
+  },
+  "industries": {
+    values: [],
+    filterOperator: ''
+  }
+};
 
 
-export default function CustomFilter ({ filterData }: CustomFilterProps) {
+export default function CustomFilter({ filterData }: CustomFilterProps) {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -112,50 +112,50 @@ export default function CustomFilter ({ filterData }: CustomFilterProps) {
 
   const updateFilterValues = (key: FilterKey, newValues: string[]) => {
     // TypeScript now knows 'key' is one of the valid keys, making this access safe
-        setFilters(prevFilters => ({
-            ...prevFilters,
-            [key]: {
-            ...prevFilters[key],
-            values: newValues,
-            }
-        }));
-    };
+    setFilters(prevFilters => ({
+      ...prevFilters,
+      [key]: {
+        ...prevFilters[key],
+        values: newValues,
+      }
+    }));
+  };
 
-      const updateFilterOperators = (key: FilterKey, newOperators: string[]) => {
+  const updateFilterOperators = (key: FilterKey, newOperators: string[]) => {
     // TypeScript now knows 'key' is one of the valid keys, making this access safe
-        setFilters(prevFilters => ({
-            ...prevFilters,
-            [key]: {
-            ...prevFilters[key],
-            filterOperator: newOperators,
-            }
-        }));
-    };
+    setFilters(prevFilters => ({
+      ...prevFilters,
+      [key]: {
+        ...prevFilters[key],
+        filterOperator: newOperators,
+      }
+    }));
+  };
 
 
-  const MAP_TITLE_TO_FILTER: { title: string; value: string[], filterKey: FilterKey}[] = [
-        {
-            "title": "Especialdiades",
-            "value": filterData.allSubCategories,
-            "filterKey": 'specialties'
-        },       
-        {
-            "title": "Habilidades",
-            "value": filterData.allSkills,
-            "filterKey": "skills"
+  const MAP_TITLE_TO_FILTER: { title: string; value: string[], filterKey: FilterKey }[] = [
+    {
+      "title": "Especialdiades",
+      "value": filterData.allSubCategories,
+      "filterKey": 'specialties'
+    },
+    {
+      "title": "Habilidades",
+      "value": filterData.allSkills,
+      "filterKey": "skills"
 
-        },       
-        {
-            "title": "Tipo de proyecto",
-            "value": filterData.allCategories,
-            "filterKey": "subcategories"
-        },
-        {
-            "title": "Industria",
-            "value": filterData.allIndustries,
-            "filterKey": "industries"
-        },
-    ]
+    },
+    {
+      "title": "Tipo de proyecto",
+      "value": filterData.allCategories,
+      "filterKey": "subcategories"
+    },
+    {
+      "title": "Industria",
+      "value": filterData.allIndustries,
+      "filterKey": "industries"
+    },
+  ]
 
   return (
     <div>
@@ -172,8 +172,8 @@ export default function CustomFilter ({ filterData }: CustomFilterProps) {
         slotProps={{
           backdrop: {
             sx: {
-                backdropFilter: "blur(3px)",
-                backgroundColor:'rgba(0,0,30,0.4)',
+              backdropFilter: "blur(3px)",
+              backgroundColor: 'rgba(0,0,30,0.4)',
             },
             timeout: 500,
           },
@@ -185,22 +185,22 @@ export default function CustomFilter ({ filterData }: CustomFilterProps) {
               Filtrat Proyectos
             </ModalTitle>
             {
-                MAP_TITLE_TO_FILTER.map((filter, index) => {
-                    return (
-                        <FilterField 
-                            key={index} 
-                            filterKey={filter.filterKey} 
-                            title={filter.title} 
-                            values={filter.value} 
-                            updateFilterValues={updateFilterValues} 
-                            updateFilterOperators={updateFilterOperators} 
-                            filters={filters}/>
-                    )
-                })
+              MAP_TITLE_TO_FILTER.map((filter, index) => {
+                return (
+                  <FilterField
+                    key={index}
+                    filterKey={filter.filterKey}
+                    title={filter.title}
+                    values={filter.value}
+                    updateFilterValues={updateFilterValues}
+                    updateFilterOperators={updateFilterOperators}
+                    filters={filters} />
+                )
+              })
             }
             <Box>
               <FilterTitle id="transition-modal-description" sx={{ mt: 2 }}>
-                Ordernar por           
+                Ordernar por
               </FilterTitle>
 
               <RadioGroup name="use-radio-group" defaultValue="first">
@@ -213,9 +213,9 @@ export default function CustomFilter ({ filterData }: CustomFilterProps) {
                 Eliminar filtros
               </Button>
 
-                <Button variant="contained" size="large" sx={{ width: '40%', backgroundColor: '#033028'  }}>
-                  Filtrar
-                </Button>
+              <Button variant="contained" size="large" sx={{ width: '40%', backgroundColor: '#033028' }}>
+                Filtrar
+              </Button>
             </Box>
           </Box>
         </Fade>

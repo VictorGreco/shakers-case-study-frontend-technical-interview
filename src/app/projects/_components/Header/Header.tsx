@@ -44,17 +44,17 @@ export default function Header() {
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Logo />
-          <NavMenuSm pages={pages}/>
-          <NavMenu pages={pages}/>
+          <NavMenuSm pages={pages} />
+          <NavMenu pages={pages} />
           <Box sx={{ flexGrow: 0 }}>
             <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-                <ChatIcon />
+              <ChatIcon />
             </IconButton>
           </Box>
           <Box sx={{ flexGrow: 0 }}>
             <IconButton size="large" aria-label="show 4 new mails" color="inherit">
               <Badge badgeContent={0} color="error">
-                  <BellIcon/>
+                <BellIcon />
               </Badge>
             </IconButton>
           </Box>

@@ -19,7 +19,7 @@ export const CardContainer = styled(Box)(({ theme }) => ({
     boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
   },
   '@media only screen and (max-width: 728px)': {
-     flexDirection: 'column',
+    flexDirection: 'column',
   },
 }));
 
@@ -71,7 +71,7 @@ export const TitleText = styled(Typography)({
 export const MetadataText = styled(Typography)(({ theme }) => ({
   fontSize: '14px',
   color: '#0B5A4C', // Dark green color for metadata
-  marginBottom:'5px',
+  marginBottom: '5px',
   '& span': {
     color: '#757575', // Separator color
     margin: '0 4px',
@@ -115,7 +115,7 @@ export const ArrowSection = styled(Box)(({ theme }) => ({
   'border-left': '1px solid #e0e0e0',
   margin: '0 15px 0 0',
   '@media only screen and (max-width: 728px)': {
-     display: 'none',
+    display: 'none',
   },
 }));
 

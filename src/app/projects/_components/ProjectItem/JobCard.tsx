@@ -18,22 +18,22 @@ import { onlyUnique } from '@/app/_lib/arrayUtils';
 import ArrowIcon from '../Icons/ArrowIcon/ArrowIcon';
 
 const JobCard = ({ project }: IProjectProps) => {
-    const techStack = project.positions
-        .map((position) => position.skills)
-        .reduce((acc, curr) => [...curr, ...acc], [])
-        .map((skill) => skill.name)
-        .filter(onlyUnique);
-    const { hourFrom, hourTo, total } = project.budget;
-    const getBudgetString = hourFrom && hourTo ? `${hourFrom}-${hourTo}`: `${total}` ;
-    const metadata = [project.category, project.subcategory, `${getBudgetString} €`, `${project.totalHours}h/month`];
-    const filteredMetadata = metadata.filter((item) => !!item);
+  const techStack = project.positions
+    .map((position) => position.skills)
+    .reduce((acc, curr) => [...curr, ...acc], [])
+    .map((skill) => skill.name)
+    .filter(onlyUnique);
+  const { hourFrom, hourTo, total } = project.budget;
+  const getBudgetString = hourFrom && hourTo ? `${hourFrom}-${hourTo}` : `${total}`;
+  const metadata = [project.category, project.subcategory, `${getBudgetString} €`, `${project.totalHours}h/month`];
+  const filteredMetadata = metadata.filter((item) => !!item);
 
-    const formattedMetadata = filteredMetadata.map((item, index) => (
-        <React.Fragment key={index}>
-            {item}
-            {index < filteredMetadata.length - 1 && <Box component="span">|</Box>}
-        </React.Fragment>
-    ));
+  const formattedMetadata = filteredMetadata.map((item, index) => (
+    <React.Fragment key={index}>
+      {item}
+      {index < filteredMetadata.length - 1 && <Box component="span">|</Box>}
+    </React.Fragment>
+  ));
 
   return (
     <Box sx={{ margin: 'auto' }}>
@@ -44,7 +44,7 @@ const JobCard = ({ project }: IProjectProps) => {
         {/* Left Section: Logo and Brand Name */}
         <LogoSection>
           {/* In a real app, this would be an <img> tag or a Next.js <Image> component */}
-          <CompanyLogo src={ project.organization[0].logo }/>
+          <CompanyLogo src={project.organization[0].logo} />
           <BrandNameText variant="caption">{project.organization[0].name.split("").slice(0, 10).join("")}</BrandNameText>
         </LogoSection>
 
@@ -72,7 +72,7 @@ const JobCard = ({ project }: IProjectProps) => {
           <ArrowIcon />
         </ArrowSection>
       </CardContainer>
-      
+
     </Box>
   );
 };

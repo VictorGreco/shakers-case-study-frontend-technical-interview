@@ -24,20 +24,20 @@ export const LogoPlaceholder = styled(Box)(({ theme }) => ({
     height: 48,
     fontSize: '2rem',
     '&::before': {
-     fontSize: '2rem',
-  },
+      fontSize: '2rem',
+    },
   },
 }));
 
 interface CompanyLogoComponentProps {
-    src: string;
+  src: string;
 }
 
 const CompanyLogo = ({ src }: CompanyLogoComponentProps) => {
 
-    if (true) {
-        return (<LogoPlaceholder />)
-    }
+  if (true) {
+    return (<LogoPlaceholder />)
+  }
 };
 
 export default CompanyLogo;

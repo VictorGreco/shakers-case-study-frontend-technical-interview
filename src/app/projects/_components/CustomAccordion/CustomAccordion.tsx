@@ -7,27 +7,27 @@ import { IFaq } from '../_types/IFaq';
 import styled from 'styled-components';
 
 interface CustomAccordionProps {
-    faqs: IFaq[];
+  faqs: IFaq[];
 }
 
-export const StyledAccordion= styled(Accordion)(({ theme }) => ({
+export const StyledAccordion = styled(Accordion)(({ theme }) => ({
   border: '2px solid #EDF7F6',
-    marginBottom: '10px',
-    '&.Mui-expanded': {
-        backgroundColor: '#EDF7F6',
-    }
+  marginBottom: '10px',
+  '&.Mui-expanded': {
+    backgroundColor: '#EDF7F6',
+  }
 }));
 
-export const StyledAccordionSummary= styled(AccordionSummary)(({ theme }) => ({
-    minHeight: '0px',
+export const StyledAccordionSummary = styled(AccordionSummary)(({ theme }) => ({
+  minHeight: '0px',
+  margin: '0px!important',
+  '&.content': {
     margin: '0px!important',
-      '&.content': {
-        margin: '0px!important',
 
   }
 }));
 
-export const StyledTypographyTitle= styled(Typography)(({ theme }) => ({
+export const StyledTypographyTitle = styled(Typography)(({ theme }) => ({
   fontSize: '12px!important',
   fontWeight: 400,
   color: '#181B1A',
@@ -36,7 +36,7 @@ export const StyledTypographyTitle= styled(Typography)(({ theme }) => ({
 
 }));
 
-export const StyledAccordionDetails= styled(AccordionDetails)(({ theme }) => ({
+export const StyledAccordionDetails = styled(AccordionDetails)(({ theme }) => ({
   fontSize: '12px!important',
   fontWeight: 400,
   color: '#555E5C',
@@ -47,24 +47,24 @@ export const StyledAccordionDetails= styled(AccordionDetails)(({ theme }) => ({
 export default function CustomAccordion({ faqs }: CustomAccordionProps) {
   return (
     <div>
-        {
-            faqs.map(({ question, answer}, index) => {
-                return (
-                    <StyledAccordion key={`${question}-${index}`}>
-                        <StyledAccordionSummary
-                        expandIcon={<ExpandMoreIcon />}
-                        aria-controls="panel1-content"
-                        id="panel1-header"
-                        >
-                        <StyledTypographyTitle >{question}</StyledTypographyTitle>
-                        </StyledAccordionSummary>
-                        <StyledAccordionDetails>
-                        {answer}
-                        </StyledAccordionDetails>
-                    </StyledAccordion>
-                );
-            })
-        }
+      {
+        faqs.map(({ question, answer }, index) => {
+          return (
+            <StyledAccordion key={`${question}-${index}`}>
+              <StyledAccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel1-content"
+                id="panel1-header"
+              >
+                <StyledTypographyTitle >{question}</StyledTypographyTitle>
+              </StyledAccordionSummary>
+              <StyledAccordionDetails>
+                {answer}
+              </StyledAccordionDetails>
+            </StyledAccordion>
+          );
+        })
+      }
     </div>
   );
 }
