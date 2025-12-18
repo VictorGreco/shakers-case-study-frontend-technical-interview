@@ -69,16 +69,16 @@ export const TechStackContainer = styled(Box)({
 });
 
 export const TechTagChip = styled(Chip)(({ theme }) => ({
-  height: 24,
-  fontSize: '12px',
-  borderRadius: '6px',
-  backgroundColor: '#FFFFFF',
-  color: '#181B1A',
-  border: 0,
-  padding: '15px 10px',
+  height: '24px!important',
+  fontSize: '12px!important',
+  borderRadius: '6px!important',
+  backgroundColor: '#FFFFFF!important',
+  color: '#181B1A!important',
+  border: '0px!important',
+  padding: '15px 10px!important',
   '& .MuiChip-icon': {
-    fontSize: '12px',
-    color: '#181B1A',
+    fontSize: '12px!important',
+    color: '#181B1A!important',
   },
 }));
 
