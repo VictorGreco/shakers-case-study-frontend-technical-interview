@@ -97,7 +97,7 @@ export const TechTagChip = styled(Chip)(({ theme }) => ({
   borderRadius: '6px!important',
   backgroundColor: '#F4F5F5!important',
   color: '#424242!important',
-  border: 0,
+  border: '0px!important',
   '& .MuiChip-icon': {
     fontSize: '12px!important',
     color: '#181B1A!important',
