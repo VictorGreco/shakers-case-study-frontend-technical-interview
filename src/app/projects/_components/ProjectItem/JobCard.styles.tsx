@@ -92,15 +92,15 @@ export const TechStackContainer = styled(Box)({
 
 // 5. Tech Tag Chip
 export const TechTagChip = styled(Chip)(({ theme }) => ({
-  height: 24,
-  fontSize: '0.75rem',
-  borderRadius: '6px',
-  backgroundColor: '#F4F5F5',
-  color: '#424242',
+  height: '24!important',
+  fontSize: '12px!important',
+  borderRadius: '6px!important',
+  backgroundColor: '#F4F5F5!important',
+  color: '#424242!important',
   border: 0,
   '& .MuiChip-icon': {
-    fontSize: '12px',
-    color: '#181B1A',
+    fontSize: '12px!important',
+    color: '#181B1A!important',
   },
 }));
 
